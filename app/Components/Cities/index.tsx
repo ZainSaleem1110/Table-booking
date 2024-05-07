@@ -16,6 +16,7 @@ function Restaurants() {
   useEffect(() => {
     setAllCitiesList(Cities && Cities?.length > 0 ? Cities : [])
     setTimeout(() => { setLoading(false) }, 5000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Cities])
 
   return (
@@ -47,9 +48,9 @@ function Restaurants() {
               </div>
             );
           })
-          : allCitiesList && allCitiesList?.length > 0 && allCitiesList.map((cities: CITIES_LIST) => {
+          : allCitiesList && allCitiesList?.length > 0 && allCitiesList.map((cities: CITIES_LIST, index:number) => {
             return (
-              <CitiesCard data={cities} />
+              <CitiesCard key={index} data={cities} />
             )
           })}
       </div>

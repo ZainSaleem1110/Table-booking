@@ -37,3 +37,20 @@ body {
     text-wrap: balance;
   }
 }
+
+.navOption{
+  display: flex;
+}
+
+.navIcon{
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .navOption{
+    display: none;
+  }
+  .navIcon{
+    display: flex;
+  }
+}

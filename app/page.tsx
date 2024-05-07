@@ -1,9 +1,9 @@
 'use client'
-import Navbar from "@/app/Components/Navbar";
-import Cities from "@/app/Components/Cities";
+import Navbar from "./Components/Navbar";
+import Cities from "./Components/Cities";
 import FoodCategoriesSlider from "./Components/Sliders/FoodCategories";
 import Destinations from "./Components/Destinations";
-import Restaurants from "@/app/Components/Sliders/Restaurants";
+import Restaurants from "./Components/Sliders/Restaurants";
 import Subscription from "./Components/Subscription";
 import Footer from "./Components/Footer";
 

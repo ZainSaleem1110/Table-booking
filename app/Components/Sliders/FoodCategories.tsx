@@ -15,6 +15,7 @@ interface FOOD_LIST {
 function FoodCategoriesSlider() {
     const [loading, setLoading] = useState(true)
     const skelton = ["1", "2", "3", "4", "5", "6", "7", "8", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const [allCategories, setAllCategories] = useState<FOOD_LIST[]>([])
 
     function SampleNextArrow(props: any) {
         const { className, style, onClick } = props;
@@ -125,7 +126,9 @@ function FoodCategoriesSlider() {
     };
 
     useEffect(() => {
+        setAllCategories(FoodCategories.length > 0 ? FoodCategories : [])
         setTimeout(() => { setLoading(false) }, 5000);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [FoodCategories])
 
     return (
@@ -168,7 +171,7 @@ function FoodCategoriesSlider() {
                                 <div
                                     className={`rounded-xl border shadow-sm overflow-hidden h-full relative cursor-pointer`}
                                 >
-                                    <img src={items.image ?? ""} alt="food categories" className='object-cover w-full h-full' />
+                                    <Image src={items.image ?? ""} alt="food categories" width={300} height={170} className='object-cover' />
                                     <div className='absolute top-0 left-0 w-full h-full flex items-end' style={{ background: "rgba(0,0,0,.5)" }}>
                                         <h2 className='p-3 text-[20px] font-semibold text-white'>{items.name ?? ""}</h2>
                                     </div>

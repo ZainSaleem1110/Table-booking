@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-x-6 mt-20">
           {SocialIcons &&
-            SocialIcons.map((social, index) => {
+            SocialIcons.map((social, index:number) => {
               return (
                 <Link
                   href={social?.Link}

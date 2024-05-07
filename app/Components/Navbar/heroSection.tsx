@@ -13,13 +13,13 @@ function HeroSection() {
           <option value="" disabled>Select Cuisine</option>
             {FoodCategories && FoodCategories?.length > 0 && FoodCategories.map((items:any,index:number)=>{
               return(
-                <option value={items.name}>{items.name ?? ""}</option>
+                <option key={index} value={items.name}>{items.name ?? ""}</option>
               )
             })}
           </select>
         </div>
         <input type='date' className='h-full px-3 outline-none border-none rounded-md w-[20%]' placeholder='Date' />
-        <input className='h-full pl-3 outline-none border-none rounded-md w-[20%]' placeholder='Number of persons' />
+        <input className='h-full pl-3 outline-none border-none rounded-md w-[20%]' placeholder='Persons' />
         <button className='h-full bg-[#003b95] text-white w-[10%] rounded-md'>Search</button>
       </div>
     </div>

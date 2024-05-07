@@ -131,6 +131,7 @@ function Restaurants() {
     useEffect(() => {
         setAllRestaurants(topRestaurants && topRestaurants?.length > 0 ? topRestaurants : [])
         setTimeout(() => { setLoading(false) }, 5000);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [topRestaurants])
     return (
         <div>
@@ -171,9 +172,9 @@ function Restaurants() {
                             >
                                 <div className='border-2 rounded-xl md:max-w-[300px] h-[350px] w-full'>
                                     <div
-                                        className={`rounded-tl-xl rounded-tr-xl border shadow-sm overflow-hidden h-[250px] relative cursor-pointer`}
+                                        className={`rounded-tl-xl rounded-tr-xl border shadow-sm overflow-hidden w-full h-[250px] relative cursor-pointer`}
                                     >
-                                        <img src={items.image ?? ""} alt="food categories" className='object-cover w-full h-full' />
+                                        <Image src={items.image ?? ""} alt="food categories" width={300} height={250} className='object-cover' />
                                         <div className='absolute top-0 left-0 w-full h-full flex items-end' style={{ background: "rgba(0,0,0,.5)" }}></div>
                                     </div>
                                     <div className='px-5'>

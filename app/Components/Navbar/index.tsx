@@ -5,6 +5,7 @@ import Categories from './categories';
 import HeroSection from './heroSection';
 import FlagImage from '@/public/Images/Flags/flag.png'
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { IoReorderThree } from "react-icons/io5";
 
 function Navbar() {
   return (
@@ -12,7 +13,7 @@ function Navbar() {
       <div className='bg-[#003b95] w-full flex flex-col justify-center items-center pt-3 py-16'>
         <div className='xl:w-[60%] md:w-[80%] w-[100%] h-[70px] text-white flex items-center justify-between'>
           <h2 className="font-bold text-[24px]">TableBooking.com</h2>
-          <div className='flex items-center gap-[15px]'>
+          <div className='flex items-center gap-[15px] navOption'>
             <p className='cursor-pointer hover:bg-[#1a4fa0] p-3 rounded-md'>Cur</p>
             <div className='cursor-pointer hover:bg-[#1a4fa0] p-3 rounded-md'>
               <div className='rounded-full w-[25px] h-[25px] overflow-hidden '>
@@ -26,12 +27,15 @@ function Navbar() {
             <button className='border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white'>Register</button>
             <button className='border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white'>Sign in</button>
           </div>
+          <div className="navIcon text-[42px] cursor-pointer">
+            <IoReorderThree />
+          </div>
         </div>
-        <div className='pt-5 flex justify-start xl:w-[60%] md:w-[80%] w-[100%]'>
+        <div className='pt-5 flex justify-start xl:w-[60%] md:w-[80%] w-[100%] navOption'>
           <Categories />
         </div>
         <div className='flex justify-start xl:w-[60%] md:w-[80%] w-[100%] pt-14'>
-          <HeroSection/>
+          <HeroSection />
         </div>
       </div>
     </>

@@ -33,9 +33,9 @@ function Categories() {
 
     return (
         <div className="flex items-center gap-5">
-            {categoriesOffer && categoriesOffer?.length > 0 && categoriesOffer.map((items: CATEGORIES) => {
+            {categoriesOffer && categoriesOffer?.length > 0 && categoriesOffer.map((items: CATEGORIES, index:number) => {
                 return (
-                    <div className={`flex items-center gap-3 h-[40px] text-white cursor-pointer hover:bg-[#1a4fa0] px-5 rounded-full hover:border hover:border-white ${items.active === true ? "border border-white bg-[#1a4fa0]" : "border border-transparent"}`} onClick={() => { handleSelected(items.id) }}>
+                    <div key={index} className={`flex items-center gap-3 h-[40px] text-white cursor-pointer hover:bg-[#1a4fa0] px-5 rounded-full hover:border hover:border-white ${items.active === true ? "border border-white bg-[#1a4fa0]" : "border border-transparent"}`} onClick={() => { handleSelected(items.id) }}>
                         {items.logo}
                         <span>{items.name}</span>
                     </div>
