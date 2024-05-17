@@ -24,7 +24,7 @@ function Restaurants() {
         const { className, style, onClick } = props;
         return (
             <div
-                className="cursor-pointer select-none absolute right-[-50px] top-[150px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
+                className="cursor-pointer select-none absolute right-[-5px] top-[150px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
                 style={{
                     ...style,
                     display: "flex",
@@ -55,7 +55,7 @@ function Restaurants() {
         const { className, style, onClick } = props;
         return (
             <div
-                className="cursor-pointer select-none absolute left-[-50px] top-[150px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
+                className="cursor-pointer select-none absolute left-[-5px] top-[150px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0] z-10"
                 style={{
                     ...style,
                     display: "flex",
@@ -135,8 +135,8 @@ function Restaurants() {
     }, [topRestaurants])
     return (
         <div>
-            <h2 className='text-[32px] font-bold'>Top Restaurants In Pakistan</h2>
-            <p className='mb-5 w-[70%]'>Great food is the make or break between a good and a great travel experience, so never settle with these top restaurants in the entire world!</p>
+            <h2 className='sm:text-[32px] text-[18px] font-bold sm:text-start text-center'>Top Restaurants In Pakistan</h2>
+            <p className='sm:mb-5 mb-10 sm:w-[70%] sm:text-[16px] text-[14px] sm:text-start text-center sm:mt-0 mt-2'>Great food is the make or break between a good and a great travel experience, so never settle with these top restaurants in the entire world!</p>
             <Slider {...settings}>
                 {loading === true
                     ? skelton.map((limit: string, index: number) => {
@@ -144,7 +144,7 @@ function Restaurants() {
                             <div
                                 key={index}
                                 role="status"
-                                className="max-w-sm rounded-md animate-pulse md:max-w-[300px] relative px-3 md:mt-0 mt-10"
+                                className="rounded-md animate-pulse relative px-3"
                             >
                                 <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] ">
                                     <svg
@@ -168,13 +168,13 @@ function Restaurants() {
                         return (
                             <div
                                 key={index}
-                                className={`md:mt-0 mt-10 px-2 cursor-pointer`}
+                                className={`px-2 cursor-pointer`}
                             >
-                                <div className='border-2 rounded-xl md:max-w-[300px] h-[350px] w-full'>
+                                <div className='border-2 rounded-xl h-[350px] w-full'>
                                     <div
                                         className={`rounded-tl-xl rounded-tr-xl border shadow-sm overflow-hidden w-full h-[250px] relative cursor-pointer`}
                                     >
-                                        <Image src={items.image ?? ""} alt="food categories" width={300} height={250} className='object-cover' />
+                                        <Image src={items.image ?? ""} alt="food categories" width={300} height={250} className='object-cover h-[100%] w-[100%]' />
                                         <div className='absolute top-0 left-0 w-full h-full flex items-end' style={{ background: "rgba(0,0,0,.5)" }}></div>
                                     </div>
                                     <div className='px-5'>

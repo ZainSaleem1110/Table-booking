@@ -19,7 +19,7 @@ function CitiesSlider() {
     }, [Cities])
 
     return (
-        <div className="grid grid-cols-6">
+        <div className="flex flex-wrap sm:justify-start justify-center">
             {loading === true
                 ? skelton.map((limit: string, index: number) => {
                     return (
@@ -37,7 +37,7 @@ function CitiesSlider() {
                     return (
                         <div
                             key={index}
-                            className={`w-[150px] h-[60px] md:mt-0 mt-10 px-2`}
+                            className={`w-[150px] md:h-[60px] h-[30px] md:mt-0 mt-7 sm:px-2 sm:text-[16px] text-[14px] sm:text-start text-center`}
                         >
                             <a href="">{items.name ?? ""}</a>
                         </div>

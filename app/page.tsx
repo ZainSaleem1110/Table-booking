@@ -9,9 +9,9 @@ import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-[100%] overflow-x-hidden">
       <Navbar />
-      <div className="xl:w-[60%] md:w-[80%] w-[100%] mb-20">
+      <div className="xl:w-[60%] lg:w-[80%] w-[90%] mb-20">
         <Cities />
         <Restaurants />
         <FoodCategoriesSlider />

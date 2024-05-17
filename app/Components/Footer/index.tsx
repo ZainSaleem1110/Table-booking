@@ -22,7 +22,7 @@ export default function Footer() {
     <div className={`${CSS.footer} mt-10 pb-14`}>
       <div className="mt-16 pt-12 text-white flex flex-col items-center w-full">
         <Link href={"/"} className="cursor-pointer">
-          <h2 className="font-bold text-[24px]">TableBooking.com</h2>
+          <h2 className="font-bold text-[24px]">TableBooking</h2>
         </Link>
         <div
           className={`sm:h-[70px] px-6 flex sm:flex-row flex-col items-center sm:gap-y-0 gap-y-4 sm:py-0 py-5 mt-20 ${CSS["border_gradient"]}`}
@@ -46,7 +46,7 @@ export default function Footer() {
           </Link>
           <a
             href={""}
-            className="md:w-[180px] sm:w-[130px] w-[80px] sm:px-0 px-3 flex items-center justify-center sm:text-[20px] text-[14px] font-medium cursor-pointer"
+            className="md:w-[180px] sm:w-[130px] w-[100px] sm:px-0 px-3 flex items-center justify-center sm:text-[20px] text-[14px] font-medium cursor-pointer"
           >
             Contact Us
           </a>

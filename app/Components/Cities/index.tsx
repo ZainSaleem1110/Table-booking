@@ -21,15 +21,15 @@ function Restaurants() {
 
   return (
     <div className='py-20'>
-      <h2 className='text-[32px] font-bold mb-5'>Available for dinner now in Pakistan.</h2>
-      <div className='mt-5 grid grid-cols-3 gap-5'>
+      <h2 className='md:text-[32px] sm:text-[28px] text-[20px] font-bold sm:text-start text-center mb-5'>Available for dinner now in Pakistan.</h2>
+      <div className='mt-5 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
         {loading === true
           ? skelton.map((limit: string, index: number) => {
             return (
               <div
                 key={index}
                 role="status"
-                className="max-w-sm rounded-md animate-pulse md:max-w-full relative px-3 md:mt-0 mt-10"
+                className="rounded-md animate-pulse relative px-3 md:mt-0 mt-10"
               >
                 <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] ">
                   <svg
