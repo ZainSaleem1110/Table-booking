@@ -56,3 +56,51 @@ body {
     display: flex;
   }
 }
+
+.changeWidth input {
+  display: none !important;
+}
+
+.changeWidth {
+  width: max-content !important;
+  max-width: 150px !important;
+  margin: 0 !important;
+  padding: 3px 0px !important;
+}
+
+.changeWidth .MuiOutlinedInput-root {
+  height: auto !important;
+}
+
+.changeHeightWidth .MuiSlider-thumbColorPrimary {
+  width: 11px !important;
+  height: 11px !important;
+}
+
+.changeHeightWidth .MuiBox-root .MuiFormControl-root {
+  margin-bottom: 0 !important;
+}
+
+.customNumbersShow .changeWidth {
+  display: none !important;
+}
+
+.customNumbersShow p.flexPara {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customNumbersShow p.flexPara p:first-child {
+  text-align: left !important;
+}
+
+.customNumbersShow p.flexPara p:first-child,
+.customNumbersShow p.flexPara p:last-child {
+  min-width: 30% !important;
+  text-align: right;
+  padding: 2px 15px;
+  background-color: #f4f4f4;
+}

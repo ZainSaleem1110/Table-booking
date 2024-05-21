@@ -55,3 +55,27 @@ export const topRestaurants = [
     {"id": 17, "name": "Lord of Food", "locatedIn": "Rawalpindi", "image": "/Images/Restaurants/pic17.jpg", "rating": 4.8, "reviews": 50},
     {"id": 18, "name": "Khan Baba", "locatedIn": "Multan", "image": "/Images/Restaurants/pic18.jpg", "rating": 4.8, "reviews": 50},
 ]
+
+export const occasions = [
+    {"id": 1, "name": "Sehri"},
+    {"id": 2, "name": "Iftar Party"},
+    {"id": 4, "name": "Anniversary"},
+    {"id": 5, "name": "Christmas"},
+    {"id": 6, "name": "Party"},
+    {"id": 7, "name": "Halloween"},
+    {"id": 8, "name": "Wedding"},
+    {"id": 9, "name": "Engagement"},
+    {"id": 10, "name": "Birthday"},
+    {"id": 10, "name": "Baby Shower"},
+    {"id": 10, "name": "New Year"},
+    {"id": 10, "name": "Bridal Shower"},
+    {"id": 10, "name": "Graduation Party"},
+]
+
+export const rating = [
+    {"id": 1, "name": "0 - 1"},
+    {"id": 2, "name": "1 - 2"},
+    {"id": 4, "name": "2 - 3"},
+    {"id": 5, "name": "3 - 4"},
+    {"id": 6, "name": "4 - 5"},
+]

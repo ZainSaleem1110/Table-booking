@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { topRestaurants } from '@/Constant/constant';
-import Image from 'next/image';
-import StarRatings from 'react-star-ratings';
+import RestaurantCard from '../RestaurantCard';
 
 interface FOOD_LIST {
     id?: number;
@@ -166,33 +165,8 @@ function Restaurants() {
                     })
                     : allRestaurants?.map((items: FOOD_LIST, index: number) => {
                         return (
-                            <div
-                                key={index}
-                                className={`px-2 cursor-pointer`}
-                            >
-                                <div className='border-2 rounded-xl h-[350px] w-full'>
-                                    <div
-                                        className={`rounded-tl-xl rounded-tr-xl border shadow-sm overflow-hidden w-full h-[250px] relative cursor-pointer`}
-                                    >
-                                        <Image src={items.image ?? ""} alt="food categories" width={300} height={250} className='object-cover h-[100%] w-[100%]' />
-                                        <div className='absolute top-0 left-0 w-full h-full flex items-end' style={{ background: "rgba(0,0,0,.5)" }}></div>
-                                    </div>
-                                    <div className='px-5'>
-                                    <h2 className='mt-2 text-[16px] font-semibold text-center truncate'>{items.name ?? ""}{items.locatedIn ? `, ${items.locatedIn}` : ""}</h2>
-                                    <div className='flex items-center justify-center'>
-                                        <StarRatings
-                                            rating={items.rating}
-                                            starRatedColor="orange"
-                                            numberOfStars={5}
-                                            name='rating'
-                                            starDimension="20px"
-                                            starSpacing="2px"
-                                        />
-                                        <p className='mt-2 pl-2'>{"("}{items.rating ?? 0}{")"}</p>
-                                    </div>
-                                    <p className='text-center mt-1'>{items.reviews ?? ""} Reviews</p>
-                                    </div>
-                                </div>
+                            <div key={index} className={`md:mt-0 mt-10 px-2 cursor-pointer`}>
+                                <RestaurantCard data={items}/>
                             </div>
                         );
                     })}
