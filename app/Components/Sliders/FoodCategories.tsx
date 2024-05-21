@@ -21,7 +21,7 @@ function FoodCategoriesSlider() {
         const { className, style, onClick } = props;
         return (
             <div
-                className="cursor-pointer select-none absolute right-[-50px] top-[75px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
+                className="cursor-pointer select-none absolute right-[-5px] top-[75px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
                 style={{
                     ...style,
                     display: "flex",
@@ -52,7 +52,7 @@ function FoodCategoriesSlider() {
         const { className, style, onClick } = props;
         return (
             <div
-                className="cursor-pointer select-none absolute left-[-50px] top-[75px] text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
+                className="cursor-pointer select-none absolute left-[-5px] top-[75px] z-10 text-white bg-[#003b95] w-[30px] h-[30px] rounded-full hover:bg-[#1a4fa0]"
                 style={{
                     ...style,
                     display: "flex",
@@ -133,8 +133,8 @@ function FoodCategoriesSlider() {
 
     return (
         <div>
-            <h2 className='text-[32px] font-bold mt-20'>Top Trending Cuisines</h2>
-            <p className='mb-5 w-[70%]'>Explore some of the most exciting and trending activities across the globe!</p>
+            <h2 className='sm:text-[32px] text-[18px] font-bold sm:text-start text-center mt-20'>Top Trending Cuisines</h2>
+            <p className='sm:mb-5 mb-10 sm:w-[70%] sm:text-[16px] text-[14px] sm:text-start text-center sm:mt-0 mt-2'>Explore some of the most exciting and trending activities across the globe!</p>
             <Slider {...settings}>
                 {loading === true
                     ? skelton.map((limit: string, index: number) => {
@@ -142,7 +142,7 @@ function FoodCategoriesSlider() {
                             <div
                                 key={index}
                                 role="status"
-                                className="max-w-sm rounded-md animate-pulse md:max-w-[300px] relative px-3 md:mt-0 mt-10"
+                                className="rounded-md animate-pulse relative px-3"
                             >
                                 <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] ">
                                     <svg
@@ -166,12 +166,12 @@ function FoodCategoriesSlider() {
                         return (
                             <div
                                 key={index}
-                                className={`md:max-w-[300px] h-[170px] w-full md:mt-0 mt-10 px-2`}
+                                className={`h-[170px] w-full px-2`}
                             >
                                 <div
                                     className={`rounded-xl border shadow-sm overflow-hidden h-full relative cursor-pointer`}
                                 >
-                                    <Image src={items.image ?? ""} alt="food categories" width={300} height={170} className='object-cover' />
+                                    <Image src={items.image ?? ""} alt="food categories" width={300} height={170} className='object-cover h-[100%] w-[100%]' />
                                     <div className='absolute top-0 left-0 w-full h-full flex items-end' style={{ background: "rgba(0,0,0,.5)" }}>
                                         <h2 className='p-3 text-[20px] font-semibold text-white'>{items.name ?? ""}</h2>
                                     </div>
