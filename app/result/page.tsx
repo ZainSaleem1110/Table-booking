@@ -76,20 +76,20 @@ function Result() {
 
   return (
     <div className="mt-24 xl:px-20 px-10 flex gap-7">
-      <div className="w-[400px] relative">
+      <div className="w-[300px] relative">
         <Filterbar />
       </div>
-      <div>
-        <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-y-8">
+      <div className="w-full">
+        <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-y-8 w-full">
           {loading === true
             ? skelton.map((limit: string, index: number) => {
                 return (
                   <div
                     key={index}
                     role="status"
-                    className="rounded-md animate-pulse relative px-3"
+                    className="rounded-md animate-pulse relative px-3 w-full"
                   >
-                    <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] ">
+                    <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] w-full">
                       <svg
                         className="w-10 h-10 text-gray-200 dark:text-gray-600"
                         aria-hidden="true"

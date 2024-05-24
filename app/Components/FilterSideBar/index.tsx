@@ -100,7 +100,7 @@ function Filterbar() {
   }, [rating]);
 
   return (
-    <div className="w-[100%] z-10">
+    <div className="w-[300px] z-10">
       <div className="bg-white flex justify-between items-center px-3 py-2 rounded-md shadow-md">
         <span className="font-bold">Filter Results:</span>
         <button
