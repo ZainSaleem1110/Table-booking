@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Filterbar from "../Components/FilterSideBar";
 import { topRestaurants } from "@/Constant/constant";
 import RestaurantCard from "../Components/RestaurantCard";
@@ -40,7 +40,6 @@ interface FOOD_LIST {
 }
 
 function Result() {
-  const searchParams = useSearchParams();
   const router: any = useRouter();
   const [searchCity, setSearchCity] = useState("");
   const [filterByCity, setFilterByCity] = useState(false);
@@ -64,17 +63,6 @@ function Result() {
     "7",
     "8",
   ];
-
-  useEffect(() => {
-    const cityName = searchParams.get("name");
-    const searchType = searchParams.get("type");
-    if (searchType === "city") {
-      setFilterByCity(true);
-      if (cityName) {
-        setSearchCity(cityName);
-      }
-    }
-  }, [searchParams]);
 
   useEffect(() => {
     setAllRestaurants(
