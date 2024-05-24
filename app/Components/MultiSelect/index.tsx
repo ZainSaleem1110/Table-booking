@@ -1,30 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { styled } from "@mui/styles";
-import {
-  Checkbox,
-  Typography,
-  Box,
-} from "@mui/material";
-
-interface PropsCheckbox {
-  theme: any;
-  colorChecked?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+interface RESTAURANTS_LIST {
+  id?: number;
+  name?: string;
+  country?: string;
   checked?: boolean;
 }
-
-const StyledCheckbox = styled(Checkbox)(
-  ({ theme, colorChecked }: PropsCheckbox) => {
-    return {
-      color: "#999999",
-      padding: "0",
-      "&.Mui-checked": {
-        color: colorChecked || theme.palette.secondary.main,
-      },
-    };
-  }
-);
 
 export default function MultiSelect({
   title,
@@ -33,144 +14,65 @@ export default function MultiSelect({
   clearData,
 }: {
   title: string;
-  categories: any;
-  onChange: Function;
-  clearData?: any;
+  categories: RESTAURANTS_LIST[];
+  onChange: any;
+  clearData: boolean;
 }) {
-  const [isShowDropDown, setIsShowDropDown] = useState(false);
-  const [opt, setOpt] = useState<any[]>([]);
-  const [optSelected, setOptSelected] = useState<any[]>([]);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [dropdownList, setDropdownList] = useState<RESTAURANTS_LIST[]>([]);
+  const [selectedCount, setSelectedCount] = useState(0);
 
   useEffect(() => {
-    let empty: any = [];
-    const selected = optSelected?.map((opt) => opt);
-    if (optSelected?.length) {
-      onChange(selected);
-    } else {
-      onChange(empty);
+    if (categories && categories.length > 0) {
+      setDropdownList(categories);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [optSelected]);
-
-  useEffect(() => {
-    const newArray = categories?.map((name: any, index: any) => ({
-      name: name?.name,
-      checked: false,
-      id: name?.id,
-    }));
-    setOpt(newArray);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories]);
 
-  useEffect(() => {
-    if (clearData == true) {
-      setOptSelected([]);
-      const newArray = categories?.map((name: any, index: any) => ({
-        name: name?.name,
-        checked: false,
-        id: name?.id,
-      }));
-      setOpt(newArray);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clearData]);
-
-  const FetchData = (opt: any, optSelected: any) => {
-    opt?.filter((original: any) => {
-      return optSelected?.some((selected: any) => {
-        if (original?.name === selected?.opt && original?.checked == false) {
-          original.checked = true;
-        }
-      });
-    });
-  };
-
-  useEffect(() => {
-    FetchData(opt, optSelected);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [optSelected, opt]);
-
-  const handleChange = (e: any) => {
-    const name = e.target.name;
-    const optChecked = e.target.checked;
-
-    const newArray = opt?.map((opts: any) =>
-      name === opts?.name ? { ...opts, checked: optChecked } : opts
-    );
-    setOpt(newArray);
-    if (optChecked) {
-      setOptSelected([...optSelected, { opt: name, checked: optChecked }]);
-    } else {
-      const arr = optSelected
-        .map((opt) =>
-          name === opt?.opt ? { ...opt, checked: optChecked } : opt
-        )
-        .filter((opt) => opt.checked && opt);
-      setOptSelected(arr);
-    }
-  };
-
   return (
-    <Box
-      width="100%"
-      borderBottom="1px solid #DBDBDB"
-      sx={{
-        "&: last-child": {
-          borderBottom: "none",
-        },
-      }}
-    >
-      <Box
-        className="pointer"
-        onClick={() => setIsShowDropDown(!isShowDropDown)}
-        height="40px"
-        display="flex"
-        alignItems="center"
-      >
-        <Box mr="5px">
+    <div className="pt-2">
+      <div className="flex justify-between items-center">
+        <div
+          className="flex items-center gap-2 pointer"
+          onClick={() => {
+            setOpenDropdown(!openDropdown);
+          }}
+        >
           <Image
             src={
-              isShowDropDown
+              openDropdown === true
                 ? "/Images/icons/triangle-bottom-icon.svg"
                 : "/Images/icons/triangle-right-primary-icon.svg"
             }
+            alt="arrow"
             width={20}
             height={20}
-            layout="fixed"
-            alt=""
           />
-        </Box>
-        <Box>
-          <Typography>{title}</Typography>
-        </Box>
-      </Box>
-      {isShowDropDown && (
-        <Box pt="10px" pb="13px">
-          {opt?.map(({ name, checked }: any, index: any) => {
-            return (
-              <Box pl="15px" mb="10px" key={index}>
-                <Box display="flex" alignItems="center">
-                  <Box mr="7px">
-                    <StyledCheckbox
-                      colorChecked="#F9B500"
-                      onChange={(e) => {
-                        handleChange(e);
-                      }}
-                      name={name}
-                      checked={checked}
-                    />
-                  </Box>
-                  <Box>
-                    <Typography variant="body1" color="grey.500">
-                      {name}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            );
-          })}
-        </Box>
-      )}
-    </Box>
+          <h2>{title}</h2>
+        </div>
+        {selectedCount && selectedCount > 0 ?(
+          <div className="w-[20px] h-[20px] rounded-md text-white bg-[#ffb700] flex justify-center items-center text-[14px] font-bold">
+            {selectedCount}
+          </div>
+        ):(
+          ""
+        )}
+      </div>
+      <div
+        className={`${
+          openDropdown === true ? "h-full" : "h-[0px]"
+        } overflow-hidden transition duration-700 ease-linear pl-7`}
+      >
+        {dropdownList.map((items: RESTAURANTS_LIST, index: number) => {
+          return (
+            <div key={index} className="flex items-center gap-3 pt-2">
+              <input type="checkbox" className="text-[#ffb700]" />
+              <p key={index} className="text-[14px]">
+                {items?.name}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

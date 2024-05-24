@@ -57,50 +57,44 @@ body {
   }
 }
 
-.changeWidth input {
-  display: none !important;
+.priceSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 12px;
+  border-radius: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 
-.changeWidth {
-  width: max-content !important;
-  max-width: 150px !important;
-  margin: 0 !important;
-  padding: 3px 0px !important;
+.priceSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+  background: #ffb700;
+  cursor: pointer;
 }
 
-.changeWidth .MuiOutlinedInput-root {
-  height: auto !important;
+.priceSlider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  background: #ffb700;
+  cursor: pointer;
 }
 
-.changeHeightWidth .MuiSlider-thumbColorPrimary {
-  width: 11px !important;
-  height: 11px !important;
+.cursor {
+  cursor: pointer !important;
 }
 
-.changeHeightWidth .MuiBox-root .MuiFormControl-root {
-  margin-bottom: 0 !important;
-}
-
-.customNumbersShow .changeWidth {
-  display: none !important;
-}
-
-.customNumbersShow p.flexPara {
-  display: flex;
-  margin: 0;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.customNumbersShow p.flexPara p:first-child {
-  text-align: left !important;
-}
-
-.customNumbersShow p.flexPara p:first-child,
-.customNumbersShow p.flexPara p:last-child {
-  min-width: 30% !important;
-  text-align: right;
-  padding: 2px 15px;
-  background-color: #f4f4f4;
+.translate-div{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

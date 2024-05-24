@@ -5,7 +5,7 @@ import StarRatings from "react-star-ratings";
 function RestaurantCard({ data }: any) {
   return (
     <div className={`px-2 cursor-pointer`}>
-      <div className="border-2 rounded-xl h-[350px] w-full">
+      <div className="border-2 rounded-xl h-[350px] w-full bg-white">
         <div
           className={`rounded-tl-xl rounded-tr-xl border shadow-sm overflow-hidden w-full h-[250px] relative cursor-pointer`}
         >

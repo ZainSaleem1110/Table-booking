@@ -7,17 +7,23 @@ import MobileNavbar from "./mobileNavbar";
 import FlagImage from "@/public/Images/Flags/flag.png";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoReorderThree, IoClose } from "react-icons/io5";
+import { useRouter } from "next/navigation";
+import Login from "../Login";
+import Signup from "../Signup";
 
 function Navbar() {
+  const router = useRouter()
   const [open, setOpen] = useState(false);
+  const [login, setLogin] = useState(false)
+  const [signup, setSignup] = useState(false)
   return (
     <>
       <div className="bg-[#003b95] flex flex-col justify-center items-center pt-3 py-16 w-full">
         <div className="h-[70px] xl:w-[60%] lg:w-[80%] w-[90%] text-white flex items-center justify-between">
-          <h2 className="font-bold text-[24px]">TableBooking</h2>
+          <h2 className="font-bold text-[24px] cursor" onClick={()=>{router.push('/')}}>TableBooking</h2>
           <div className="flex items-center gap-[15px] navOption">
             <div className="cursor-pointer hover:bg-[#1a4fa0] p-3 rounded-md">
-              <div className="rounded-full w-[25px] h-[25px] overflow-hidden ">
+              <div className="rounded-full w-[25px] h-[25px] overflow-hidden" >
                 <Image
                   src={FlagImage}
                   alt="country-flags"
@@ -29,10 +35,10 @@ function Navbar() {
             <div className="hover:bg-[#1a4fa0] p-3 rounded-md">
               <AiOutlineQuestionCircle className="text-[24px] cursor-pointer" />
             </div>
-            <button className="border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white">
+            <button className="border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white" onClick={()=>{setSignup(true)}}>
               Register
             </button>
-            <button className="border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white">
+            <button className="border-none bg-white rounded-md text-[#003b95] h-[40px] px-5 hover:bg-[#1a4fa0] hover:text-white" onClick={()=>{setLogin(true)}}>
               Sign in
             </button>
           </div>
@@ -61,7 +67,7 @@ function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed top-0 h-[100vh] sm:w-[350px] w-[300px] border bg-white px-7 py-5 z-10 ${
+        className={`fixed top-0 h-[100vh] sm:w-[350px] w-[300px] border shadow-md shadow-white text-white bg-[#1a1919] px-7 py-5 z-10 ${
           open === false ? "sm:right-[-360px] right-[-300px]" : "right-0"
         } duration-1000 transition-all`}
       >
@@ -72,13 +78,29 @@ function Navbar() {
         >
           <IoClose className="text-[24px]" />
         </button>
-        <MobileNavbar />
+        <MobileNavbar setOpenSignup={setSignup} setOpenLogin={setLogin} setOpen={setOpen} />
       </div>
       <div className="flex justify-center">
         <div className="xl:w-[60%] lg:w-[80%] w-[90%]">
           <FilterBar />
         </div>
       </div>
+      <Login
+        show={login}
+        onClose={()=>{setLogin(false)}}
+        openSignup={()=>{
+          setLogin(false)
+          setSignup(true)
+        }}
+      />
+      <Signup
+        show={signup}
+        onClose={()=>{setSignup(false)}}
+        openLogin={()=>{
+          setSignup(false)
+          setLogin(true)
+        }}
+      />
     </>
   );
 }

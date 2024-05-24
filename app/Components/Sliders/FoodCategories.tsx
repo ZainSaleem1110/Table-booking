@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FoodCategories } from '@/Constant/constant';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface FOOD_LIST {
     id?: number;
@@ -13,6 +14,7 @@ interface FOOD_LIST {
 }
 
 function FoodCategoriesSlider() {
+    const router = useRouter()
     const [loading, setLoading] = useState(true)
     const skelton = ["1", "2", "3", "4", "5", "6", "7", "8", "1", "2", "3", "4", "5", "6", "7", "8"];
     const [allCategories, setAllCategories] = useState<FOOD_LIST[]>([])
@@ -144,7 +146,7 @@ function FoodCategoriesSlider() {
                                 role="status"
                                 className="rounded-md animate-pulse relative px-3"
                             >
-                                <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[250px] ">
+                                <div className="flex items-center justify-center mb-4 bg-gray-300 rounded-md dark:bg-gray-700 h-[170px]">
                                     <svg
                                         className="w-10 h-10 text-gray-200 dark:text-gray-600"
                                         aria-hidden="true"
@@ -156,8 +158,6 @@ function FoodCategoriesSlider() {
                                         <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
                                     </svg>
                                 </div>
-                                <div className="h-[30px] bg-gray-200 rounded-md dark:bg-gray-700 w-[70%] mb-2 z-10"></div>
-                                <div className="h-[10px] bg-gray-200 rounded-md dark:bg-gray-700 w-[70%] mb-2 z-10"></div>
                                 <span className="sr-only">Loading...</span>
                             </div>
                         );
@@ -167,6 +167,7 @@ function FoodCategoriesSlider() {
                             <div
                                 key={index}
                                 className={`h-[170px] w-full px-2`}
+                                onClick={()=>{router.push(`/result?type=cuisines&name=${encodeURIComponent(items?.name ?? "")}`)}}
                             >
                                 <div
                                     className={`rounded-xl border shadow-sm overflow-hidden h-full relative cursor-pointer`}

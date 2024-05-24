@@ -13,8 +13,8 @@ import Link from "next/link";
 const SocialIcons = [
   { icon: FaFacebookF, name: "Facebook", Link: "" },
   { icon: FaLinkedinIn, name: "Linkedin", Link: "" },
-  { icon: FaTwitter, name: "Twitter", Link: "https://twitter.com/weplanai?s=21&t=aoqnaoxxDOcdP5KJdtoLWQ" },
-  { icon: FaInstagram, name: "Instagram", Link: "https://www.instagram.com/weplan.ai/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" },
+  { icon: FaTwitter, name: "Twitter", Link: "" },
+  { icon: FaInstagram, name: "Instagram", Link: "" },
 ];
 
 export default function Footer() {
