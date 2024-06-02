@@ -214,9 +214,9 @@ function DetailPage() {
               Client{"'"}s Reviews
             </p>
             <div className="gap-y-8 flex flex-col mt-10">
-              {Static_Details[0].reviews.map((item: REVIEWS) => {
+              {Static_Details[0].reviews.map((item: REVIEWS,index:number) => {
                 return (
-                  <div className="bg-white shadow-sm py-10 px-7 rounded-md">
+                  <div className="bg-white shadow-sm py-10 px-7 rounded-md" key={index}>
                     <div className="flex sm:flex-row flex-col sm:items-start items-center sm:gap-8 gap-4">
                       <div className="w-[60px] h-[60px] overflow-hidden">
                       <Image
