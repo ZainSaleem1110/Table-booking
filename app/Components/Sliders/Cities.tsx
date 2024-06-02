@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Cities } from '@/Constant/constant';
+import Link from 'next/link';
 
 interface CITIES_LIST {
     id?: number;
@@ -39,7 +40,7 @@ function CitiesSlider() {
                             key={index}
                             className={`w-[150px] md:h-[60px] h-[30px] md:mt-0 mt-7 sm:px-2 sm:text-[16px] text-[14px] sm:text-start text-center`}
                         >
-                            <a href="">{items.name ?? ""}</a>
+                            <Link href={`/result?type=city&name=${items.name}`}>{items.name ?? ""}</Link>
                         </div>
                     );
                 })}

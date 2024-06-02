@@ -8,6 +8,10 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+*{
+  scroll-behavior: smooth;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -97,4 +101,24 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: lightgray; 
 }

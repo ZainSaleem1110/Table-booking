@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { topRestaurants } from '@/Constant/constant';
 import RestaurantCard from '../RestaurantCard';
-
+import { useRouter } from "next/navigation";
 interface FOOD_LIST {
     id?: number;
     name?: string;
@@ -15,6 +15,7 @@ interface FOOD_LIST {
 }
 
 function Restaurants() {
+    const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [allRestaurants, setAllRestaurants] = useState<FOOD_LIST[]>([])
     const skelton = ["1", "2", "3", "4", "5", "6", "7", "8", "1", "2", "3", "4", "5", "6", "7", "8"];
@@ -91,7 +92,7 @@ function Restaurants() {
         prevArrow: <SamplePrevArrow />,
         responsive: [
             {
-                breakpoint: 1200,
+                breakpoint: 1881,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -133,7 +134,7 @@ function Restaurants() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [topRestaurants])
     return (
-        <div>
+        <div id='restaurants'>
             <h2 className='sm:text-[32px] text-[18px] font-bold sm:text-start text-center'>Top Restaurants In Pakistan</h2>
             <p className='sm:mb-5 mb-10 sm:w-[70%] sm:text-[16px] text-[14px] sm:text-start text-center sm:mt-0 mt-2'>Great food is the make or break between a good and a great travel experience, so never settle with these top restaurants in the entire world!</p>
             <Slider {...settings}>
@@ -165,7 +166,9 @@ function Restaurants() {
                     })
                     : allRestaurants?.map((items: FOOD_LIST, index: number) => {
                         return (
-                            <div key={index} className={`md:mt-0 mt-10 px-2 cursor-pointer`}>
+                            <div key={index} className={`md:mt-0 mt-10 px-2 cursor-pointer`} onClick={()=>{
+                                router.push(`/detail?id=${items.id}`)
+                            }}>
                                 <RestaurantCard data={items}/>
                             </div>
                         );

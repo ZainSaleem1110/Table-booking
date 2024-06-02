@@ -11,10 +11,10 @@ import {
 import Link from "next/link";
 
 const SocialIcons = [
-  { icon: FaFacebookF, name: "Facebook", Link: "" },
-  { icon: FaLinkedinIn, name: "Linkedin", Link: "" },
+  { icon: FaFacebookF, name: "Facebook", Link: "https://www.facebook.com/zain.saleem.5264?mibextid=ZbWKwL" },
+  { icon: FaLinkedinIn, name: "Linkedin", Link: "https://www.linkedin.com/in/zain-saleem-a57896210/" },
   { icon: FaTwitter, name: "Twitter", Link: "" },
-  { icon: FaInstagram, name: "Instagram", Link: "" },
+  { icon: FaInstagram, name: "Instagram", Link: "https://www.instagram.com/zainsaleem7340/" },
 ];
 
 export default function Footer() {
@@ -28,18 +28,18 @@ export default function Footer() {
           className={`sm:h-[70px] px-6 flex sm:flex-row flex-col items-center sm:gap-y-0 gap-y-4 sm:py-0 py-5 mt-20 ${CSS["border_gradient"]}`}
         >
           <Link
-            href={""}
+            href={"/#location"}
             className="md:w-[180px] sm:w-[130px] w-[80px] sm:px-0 px-3 flex items-center justify-center sm:text-[20px] text-[14px] font-medium sm:border-r-2 border-[#444658] cursor-pointer"
           >
             Locations
           </Link>
-          <div
+          <Link href={"/#restaurants"}
             className="md:w-[180px] sm:w-[130px] w-[100px] sm:px-0 px-3 flex items-center justify-center sm:text-[20px] text-[14px] font-medium sm:border-r-2 border-[#444658] cursor-pointer"
           >
             Restaurants
-          </div>
+          </Link>
           <Link
-            href={"/"}
+            href={"/#cuisines"}
             className="md:w-[180px] sm:w-[130px] w-[80px] sm:px-0 px-3 flex items-center justify-center sm:text-[20px] text-[14px] font-medium sm:border-r-2 border-[#444658] cursor-pointer"
           >
             Cuisines

@@ -20,7 +20,7 @@ function Restaurants() {
   }, [Cities])
 
   return (
-    <div className='py-20'>
+    <div className='py-20' id='location'>
       <h2 className='md:text-[32px] sm:text-[28px] text-[20px] font-bold sm:text-start text-center mb-5'>Available for dinner now in Pakistan.</h2>
       <div className='mt-5 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
         {loading === true

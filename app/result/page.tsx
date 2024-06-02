@@ -112,6 +112,9 @@ function Result() {
                   <div
                     key={index}
                     className={`md:mt-0 mt-10 px-2 cursor-pointer`}
+                    onClick={()=>{
+                      router.push(`/detail?id=${items.id}`)
+                  }}
                   >
                     <RestaurantCard data={items} />
                   </div>

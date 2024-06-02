@@ -134,7 +134,7 @@ function FoodCategoriesSlider() {
     }, [FoodCategories])
 
     return (
-        <div>
+        <div id='cuisines'>
             <h2 className='sm:text-[32px] text-[18px] font-bold sm:text-start text-center mt-20'>Top Trending Cuisines</h2>
             <p className='sm:mb-5 mb-10 sm:w-[70%] sm:text-[16px] text-[14px] sm:text-start text-center sm:mt-0 mt-2'>Explore some of the most exciting and trending activities across the globe!</p>
             <Slider {...settings}>
